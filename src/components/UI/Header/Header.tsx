@@ -1,9 +1,10 @@
-import "./Header.scss";
+
+import { SHeader } from "./Header.style";
 
 export const Header = () => {
 
   return (
-    <header className="Header">
+    <SHeader>
       <div className="Header__logo">
         <a href="#">
           <svg
@@ -94,6 +95,6 @@ export const Header = () => {
           />
         </svg>
       </div>
-    </header>
+    </SHeader>
   );
 };

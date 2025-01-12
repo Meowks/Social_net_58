@@ -2,19 +2,17 @@ import styled from "styled-components";
 
 export const SAppInput = styled.input`
 
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-    border: 2px solid ${(props) => props.theme.color.disabledBgc};
-    background-color: transparent;
-
-    &:last-child {
-      margin-bottom: 40px;
-    }
-
-    &:is(:hover, :focus) {
-      border-color: ${(props) => props.theme.color.primeColor};
-    }
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 2px solid ${(props) => props.theme.color.disabledBgc};
+  background-color: transparent;
+  &:last-child {
+    margin-bottom: 40px;
+  }
+  &:is(:hover, :focus) {
+    border-color: ${(props) => props.theme.color.primeColor};
+  }
 
   border: 1px solid transparent;
   outline: 0;
@@ -34,7 +32,7 @@ export const SAppInput = styled.input`
 
 @media (max-width: 730px) {
   
-    padding: 10px 12px;
+  padding: 10px 12px;
   
 }
 
