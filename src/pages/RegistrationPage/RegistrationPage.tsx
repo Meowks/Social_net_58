@@ -2,7 +2,6 @@ import { AppButton } from "../../components/UI/AppButton/AppButton";
 import { AppHeader } from "../../components/UI/AppHeader/AppHeader";
 import { AppInput } from "../../components/UI/AppInput/AppInput";
 import { IconsWrapper } from "../../components/UI/IconsWrapper/IconsWrapper";
-import "../LoginPage/LoginPage.scss";
 import { SLoginPage } from "../LoginPage/LOginPage.style";
 
 
