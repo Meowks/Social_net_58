@@ -1,8 +1,9 @@
-import "./ProfilePage.scss";
+
+import { SProfilePage } from "./SProfilePage.style";
 
 export const ProfilePage = () => {
   return (
-    <div className="ProfilePage">
+    <SProfilePage className="ProfilePage">
       <aside className="LeftSide">
         <nav className="Navbar">
           <ul className="navbar__list">
@@ -831,6 +832,6 @@ export const ProfilePage = () => {
           </div>
         </div>
       </aside>
-    </div>
+    </SProfilePage>
   );
 };

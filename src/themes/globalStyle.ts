@@ -15,7 +15,10 @@ body {
   background-color:${(props) => props.theme.color.bgc};
   color:${(props) => props.theme.color.textColor};
 }
-
+p{
+  color:${(props) => props.theme.color.red};
+  margin-bottom: 10px;
+}
 
 a {
   text-decoration: none;

@@ -1,11 +1,12 @@
 import { Header } from "../../components/UI/Header/Header";
 import "./MainPage.scss";
+import { SMainPage } from "./SMainPage.style";
 
 export const MainPage = () => {
   return (
     <>
     <Header/>
-    <div className="MainPage">
+    <SMainPage className="MainPage">
       <aside className="LeftSide">
         <nav className="Navbar">
           <ul className="navbar__list">
@@ -722,7 +723,7 @@ export const MainPage = () => {
           </div>
         </div>
       </aside>
-    </div>
+    </SMainPage>
     </>
   );
 };

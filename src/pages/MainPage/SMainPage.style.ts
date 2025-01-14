@@ -1,3 +1,7 @@
+import styled from "styled-components"
+
+
+export const SMainPage = styled.div`
 .MainPage {
   display: grid;
   grid-template-areas: "L M R";
@@ -47,11 +51,11 @@
 }
 
 .Navbar {
-  box-shadow: 0 0 10px var(--light-gray);
+  box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
   border-radius: 20px;
   padding: calc(1vw + 11px);
-  background-color: var(--elems-bgc);
-  color: var(--text-color);
+  background-color: ${(props) => props.theme.color.elemsBgc};
+  color: ${(props) => props.theme.color.textColor};
 
   .navbar__list {
     display: flex;
@@ -74,7 +78,7 @@
       flex: 0 1 25px;
       height: calc(1vw + 5px); //? 1440 - 20 | 1920 - 25
       object-fit: contain;
-      fill: var(--prime-color);
+      fill:${(props) => props.theme.color.primeColor};
     }
 
     .item__name {
@@ -82,12 +86,12 @@
     }
 
     &:hover {
-      background-color: var(--light-gray);
+      background-color:${(props) => props.theme.color.lightGray};
     }
 
     &:active {
       transition: 100ms;
-      background-color: var(--prime-color);
+      background-color: ${(props) => props.theme.color.primeColor};
       color: white;
 
       .icon {
@@ -96,7 +100,7 @@
 
       .Badge {
         background-color: white;
-        color: var(--text-color);
+        color:${(props) => props.theme.color.textColor};
       }
     }
   }
@@ -133,8 +137,8 @@
 }
 
 .List {
-  box-shadow: 0 0 10px var(--light-gray);
-  background-color: var(--elems-bgc);
+  box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
+  background-color: ${(props) => props.theme.color.elemsBgc};
   border-radius: 20px;
   padding: calc(1vw + 11px);
 
@@ -162,19 +166,19 @@
   transition: 200ms;
 
   &:hover {
-    background-color: var(--light-gray);
+    background-color: ${(props) => props.theme.color.lightGray};
   }
 
   &:active {
     transition: 100ms;
-    background-color: var(--prime-color);
+    background-color: ${(props) => props.theme.color.primeColor};
     p {
       color: white;
     }
 
     .Badge {
       background-color: white;
-      color: var(--text-color);
+      color: ${(props) => props.theme.color.textColor};
     }
   }
 
@@ -185,7 +189,7 @@
       content: "";
       height: 1px;
       width: 80%;
-      background-color: var(--light-gray);
+      background-color: ${(props) => props.theme.color.lightGray};
 
       position: absolute;
       bottom: -8px;
@@ -216,14 +220,14 @@
     font-weight: 300;
 
     &._online {
-      color: var(--green);
+      color: ${(props) => props.theme.color.green};
     }
   }
 }
 
 .WhatsNew {
-  box-shadow: 0 0 10px var(--light-gray);
-  background-color: var(--elems-bgc);
+  box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
+  background-color: ${(props) => props.theme.color.elemsBgc};
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 20px;
@@ -257,20 +261,20 @@
       width: 24px;
       border: 1px solid transparent;
       border-radius: 10px;
-      fill: var(--prime-color);
+      fill: ${(props) => props.theme.color.primeColor};
       padding: 10px;
       box-sizing: content-box;
 
       transition: 200ms;
 
       &:hover {
-        border-color: var(--light-gray);
-        background-color: var(--bgc);
+        border-color: ${(props) => props.theme.color.lightGray};
+        background-color: ${(props) => props.theme.color.bgc};
       }
 
       &:active {
         transition: 100ms;
-        background-color: var(--prime-color);
+        background-color: ${(props) => props.theme.color.primeColor};
         fill: white;
       }
     }
@@ -308,7 +312,7 @@
 
     &:hover {
       scale: 1.1;
-      filter: drop-shadow(0 0 10px var(--prime-color));
+      filter: drop-shadow(0 0 10px ${(props) => props.theme.color.primeColor});
     }
 
     &:active {
@@ -343,7 +347,7 @@
   span {
     display: block;
     width: min-content;
-    color: var(--elems-bgc);
+    color: ${(props) => props.theme.color.elemsBgc};
     transition: 200ms;
     font-size: 14px;
   }
@@ -365,7 +369,7 @@
     }
 
     &::before {
-      background-color: var(--prime-color);
+      background-color: ${(props) => props.theme.color.primeColor};
       opacity: 0.7;
     }
   }
@@ -387,7 +391,7 @@
     height: 40px;
     width: 40px;
     object-fit: cover;
-    border: 2px solid var(--blue);
+    border: 2px solid ${(props) => props.theme.color.blue};
     border-radius: 50%;
 
     margin-bottom: 10px;
@@ -405,7 +409,7 @@
     transition: 200ms;
 
     .icon-plus {
-      fill: var(--prime-color);
+      fill: ${(props) => props.theme.color.primeColor};
       width: 14px;
       margin-bottom: 20px;
       transition: 200ms;
@@ -421,7 +425,7 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    background-color: var(--bgc);
+    background-color: ${(props) => props.theme.color.bgc};
 
     transition: 200ms;
   }
@@ -437,7 +441,7 @@
       border-radius: 0;
       width: 100%;
       height: 100%;
-      background-color: var(--prime-color);
+      background-color: ${(props) => props.theme.color.primeColor};
       opacity: 0.7;
     }
 
@@ -448,9 +452,9 @@
 }
 
 .Post {
-  box-shadow: 0 0 10px var(--light-gray);
+  box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
   padding: calc(1vw + 11px);
-  background-color: var(--elems-bgc);
+  background-color: ${(props) => props.theme.color.elemsBgc};
   border-radius: 20px;
   margin-bottom: 20px;
 
@@ -459,13 +463,13 @@
   &._liked {
     .icon-wrapper {
       .icon-like {
-        fill: var(--red);
+        fill: ${(props) => props.theme.color.red};
         stroke: 0;
         stroke-width: 0;
       }
 
       .likes-count {
-        color: var(--red);
+        color: ${(props) => props.theme.color.red};
       }
     }
   }
@@ -473,7 +477,7 @@
   &._marked {
     .icon-wrapper {
       .icon-mark {
-        fill: var(--prime-color);
+        fill: ${(props) => props.theme.color.primeColor};
         stroke: 0;
         stroke-width: 0;
       }
@@ -517,16 +521,16 @@
   box-sizing: content-box;
   border-radius: 15px;
 
-  fill: var(--dark-gray);
+  fill: ${(props) => props.theme.color.darkGray};
   transition: 200ms;
 
   &:hover {
-    background-color: var(--light-gray);
+    background-color: ${(props) => props.theme.color.lightGray};
   }
 
   &:active {
     transition: 100ms;
-    background-color: var(--prime-color);
+    background-color: ${(props) => props.theme.color.primeColor};
     fill: white;
   }
 }
@@ -560,7 +564,7 @@
 }
 
 .Repost__wrapper {
-  border-left: 1px solid var(--gray);
+  border-left: 1px solid ${(props) => props.theme.color.gray};
   padding-left: 30px;
   margin-left: 30px;
 }
@@ -577,7 +581,7 @@
   .icon-wrapper {
     cursor: pointer;
     padding: 10px;
-    background-color: var(--bgc);
+    background-color: ${(props) => props.theme.color.bgc};
     border-radius: 15px;
 
     display: flex;
@@ -593,11 +597,11 @@
     user-select: none;
 
     &:hover {
-      background-color: var(--light-gray);
+      background-color: ${(props) => props.theme.color.lightGray};
     }
 
     .count {
-      color: var(--dark-gray);
+      color: ${(props) => props.theme.color.darkGray};
       font-weight: 400;
     }
 
@@ -609,12 +613,12 @@
     }
 
     .icon-like {
-      stroke: var(--dark-gray);
+      stroke: ${(props) => props.theme.color.darkGray};
       stroke-width: 2px;
     }
 
     .icon-mark {
-      stroke: var(--dark-gray);
+      stroke: ${(props) => props.theme.color.darkGray};
       stroke-width: 2px;
     }
 
@@ -625,8 +629,8 @@
 }
 
 .MusicBlock {
-  box-shadow: 0 0 10px var(--light-gray);
-  background-color: var(--elems-bgc);
+  box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
+  background-color: ${(props) => props.theme.color.elemsBgc};
   padding: calc(1vw + 11px);
   border-radius: 20px;
 
@@ -638,7 +642,7 @@
     justify-content: space-between;
 
     span {
-      color: var(--prime-color);
+      color: ${(props) => props.theme.color.primeColor};
       font-weight: 400;
     }
   }
@@ -658,7 +662,7 @@
     transition: 200ms;
 
     &:hover {
-      background-color: var(--light-gray);
+      background-color: ${(props) => props.theme.color.lightGray};
     }
 
     img {
@@ -687,7 +691,7 @@
       flex: 0 0 24px;
       height: 24px;
 
-      border: 2px solid var(--prime-color);
+      border: 2px solid ${(props) => props.theme.color.primeColor};
       border-radius: 50%;
 
       position: relative;
@@ -697,7 +701,7 @@
         border-radius: 5px;
         height: 2px;
         width: 70%;
-        background-color: var(--prime-color);
+        background-color: ${(props) => props.theme.color.primeColor};
         position: absolute;
         top: 50%;
         left: 50%;
@@ -710,7 +714,7 @@
         border-radius: 5px;
         width: 2px;
         height: 70%;
-        background-color: var(--prime-color);
+        background-color: ${(props) => props.theme.color.primeColor};
         position: absolute;
         top: 50%;
         left: 50%;
@@ -742,14 +746,14 @@
   transition: 200ms;
 
   &:hover {
-    background-color: var(--light-gray);
+    background-color: ${(props) => props.theme.color.lightGray};
   }
 
   &::before {
     content: "";
     height: 1px;
     width: 100%;
-    background-color: var(--light-gray);
+    background-color: ${(props) => props.theme.color.lightGray};
 
     position: absolute;
     top: -8px;
@@ -780,7 +784,7 @@
     }
 
     .reply {
-      color: var(--prime-color);
+      color: ${(props) => props.theme.color.primeColor};
       font-size: calc(0.4vw + 8px); //? 14 - 1440 | 16 - 1920
     }
   }
@@ -789,7 +793,7 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    color: var(--gray);
+    color: ${(props) => props.theme.color.gray};
     font-size: calc(0.4vw + 8px); //? 14 - 1440 | 16 - 1920
   }
 
@@ -802,19 +806,21 @@
     width: 22px;
 
     fill: none;
-    stroke: var(--dark-gray);
+    stroke: ${(props) => props.theme.color.darkGray};
     stroke-width: 2px;
 
     transition: 200ms;
 
     &._active {
-      fill: var(--red);
+      fill: ${(props) => props.theme.color.red};
       stroke: none;
     }
 
     &:hover {
       stroke: none;
-      fill: var(--prime-color);
+      fill: ${(props) => props.theme.color.primeColor};
     }
   }
 }
+
+`
