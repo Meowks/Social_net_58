@@ -6,18 +6,19 @@ import { IconsWrapper } from "../../components/UI/IconsWrapper/IconsWrapper";
 import { SLoginPage } from "./LOginPage.style";
 
 import * as yup from "yup"
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Controller } from "react-hook-form";
 
 const AuthFormScheme = yup.object({
-  userEmail: yup.string()
+  userEmail: 
+  yup.string()
   .required("Email обязателен")
   .email("Введите корректный email")
   .min(4,"Введите минимум 4 символа")
   .max(30,"Не больше 30 символов"),
 
-  userPassword: yup.string()
+  userPassword: 
+  yup.string()
   .required("Пароль обязателен")
   .min(6, "Минимум 6 символов")
   .max(30,"Не больше 30 символов")
@@ -49,7 +50,10 @@ export const LoginPage = () => {
     <SLoginPage>
       <AppHeader AppHeaderText="Авторизация" textType="h1" />
       <form action="#" onSubmit={handleSubmit(formData)}>
-        <Controller control={control} name="userEmail" render={({ field }) => (
+        <Controller 
+        control={control} 
+        name="userEmail" 
+        render={({ field }) => (
           <AppInput 
           inputPlaceholder="Ваша почта" 
           inputType="email" 
@@ -73,10 +77,19 @@ export const LoginPage = () => {
           />
         )}
         />
-        <AppButton buttonText="Войти" buttonType="submit" isDisabled={false} />
+        <AppButton 
+        buttonText="Войти" 
+        buttonType="submit" 
+        isDisabled={false} />
       </form>
-      <AppLink href="../ForgotPasswordPage" linkText="Забыли пароль?" />
-      <IconsWrapper regLink="./RegistrationPage" regText="У вас нет аккаунта?" regHrefText="Зарегистрироваться" regEnterText="Войти с помощью" />
+      <AppLink 
+      href="../ForgotPasswordPage" 
+      linkText="Забыли пароль?" />
+      <IconsWrapper 
+      regLink="./RegistrationPage" 
+      regText="У вас нет аккаунта?" 
+      regHrefText="Зарегистрироваться" 
+      regEnterText="Войти с помощью" />
     </SLoginPage>
   );
 };

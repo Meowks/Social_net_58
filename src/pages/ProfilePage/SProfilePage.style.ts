@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const SProfilePage = styled.div`
-.ProfilePage {
+
   display: grid;
   grid-template-areas:
     "L P P"
@@ -53,10 +53,10 @@ export const SProfilePage = styled.div`
       margin-bottom: 20px;
     }
   }
-}
+
 
 @media (max-width: 1440px) {
-  .ProfilePage {
+
     grid-template-areas:
       "L P"
       "L M";
@@ -66,10 +66,10 @@ export const SProfilePage = styled.div`
       display: none;
     }
   }
-}
+
 
 @media (max-width: 730px) {
-  .ProfilePage {
+
     display: block;
 
     .ProfileHeader {
@@ -80,7 +80,7 @@ export const SProfilePage = styled.div`
       display: none;
     }
   }
-}
+
 
 .Navbar {
   box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
@@ -139,7 +139,7 @@ export const SProfilePage = styled.div`
 }
 
 @media (max-width: 1100px) {
-  .ProfilePage {
+
     grid-template-columns: min-content auto;
 
     .LeftSide {
@@ -166,7 +166,7 @@ export const SProfilePage = styled.div`
       }
     }
   }
-}
+
 
 .ProfileHeader {
   height: 440px;

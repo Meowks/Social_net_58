@@ -1,13 +1,15 @@
+import { LeftSide } from "../../components/leftSide/LeftSide";
+import { AppInput } from "../../components/UI/AppInput/AppInput";
 import { Header } from "../../components/UI/Header/Header";
-import "./MainPage.scss";
 import { SMainPage } from "./SMainPage.style";
 
 export const MainPage = () => {
   return (
     <>
     <Header/>
-    <SMainPage className="MainPage">
-      <aside className="LeftSide">
+    <SMainPage >
+      <LeftSide/>
+       {/* <aside className="LeftSide">
         <nav className="Navbar">
           <ul className="navbar__list">
             <li className="navbar__item">
@@ -236,16 +238,18 @@ export const MainPage = () => {
             <span className="Badge">3</span>
           </div>
         </div>
-      </aside>
+      </aside>  */}
       <main className="Main">
         <div className="WhatsNew">
           <img src="./img/users/arina-volkova.jpeg" alt="User" />
-          <input
-            type="text"
-            name="whats-new"
-            id="whats-new"
-            placeholder="Что у вас нового?"
+          <AppInput 
+          inputPlaceholder="Что у вас нового?" 
+          inputType="text" 
+          name="whats-new" 
+          id="whats-new"
+          style={{marginBottom:0}}
           />
+          
           <div className="icons-wrapper">
             <svg
               className="icon icon-camera"

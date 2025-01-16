@@ -3,7 +3,7 @@ import { SProfilePage } from "./SProfilePage.style";
 
 export const ProfilePage = () => {
   return (
-    <SProfilePage className="ProfilePage">
+    <SProfilePage >
       <aside className="LeftSide">
         <nav className="Navbar">
           <ul className="navbar__list">

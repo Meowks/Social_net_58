@@ -1,13 +1,14 @@
-import { SAppInput } from "./AppInput.style";
+import React from "react";
+import { SAppInput, SErrorText } from "./AppInput.style";
 
 type TAppInput = {
-  inputType: "text" | "tel" | "password" | "email",
+  inputType: "text" | "tel" | "password" | "email" | "search",
   inputPlaceholder: string,
   inputValue?: string,
-  isError: boolean,
+  isError?: boolean,
   errorText?: string,
-  onChange: ()=>void,
-};
+  onChange?: ()=>void, 
+}& React.InputHTMLAttributes<HTMLInputElement>;
 
 export const AppInput = ({
   inputType,
@@ -15,7 +16,10 @@ export const AppInput = ({
   inputValue,
   isError,
   errorText,
-  onChange
+  onChange,
+  
+
+  ...props
 }: TAppInput) => {
   return (
     <>
@@ -24,8 +28,11 @@ export const AppInput = ({
       placeholder={inputPlaceholder}
       value={inputValue}
       onChange={onChange}
+
+
+      {...props}
     />
-    {isError && <p>{errorText}</p>}
+    {isError && <SErrorText>{errorText}</SErrorText>}
     </>
   );
 };

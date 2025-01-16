@@ -37,3 +37,8 @@ export const SAppInput = styled.input`
 }
 
 `
+
+export const SErrorText = styled.p`
+  color:${(props) => props.theme.color.red};
+  margin-bottom: 10px;
+`
