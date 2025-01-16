@@ -8,13 +8,13 @@ export const SMainPage = styled.div`
   grid-template-columns: minmax(300px, 360px) auto minmax(300px, 360px);
   gap: 30px;
 
-  .LeftSide {
+  /* .LeftSide {
     grid-area: L;
 
     .Navbar {
       margin-bottom: 20px;
     }
-  }
+  } */
 
   .Main {
     grid-area: M;
@@ -44,13 +44,13 @@ export const SMainPage = styled.div`
   
     display: block;
 
-    .LeftSide {
+    /* .LeftSide {
       display: none;
-    }
+    } */
 
 }
 
-.Navbar {
+/* .Navbar {
   box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
   border-radius: 20px;
   padding: calc(1vw + 11px);
@@ -104,20 +104,20 @@ export const SMainPage = styled.div`
       }
     }
   }
-}
+} */
 
 @media (max-width: 1100px) {
   
     grid-template-columns: min-content auto;
 
-    .LeftSide {
+    /* .LeftSide {
       .List {
         display: none;
       }
-    }
+    } */
   
 
-  .Navbar {
+  /* .Navbar {
     .navbar__item {
       display: inline-block;
 
@@ -133,7 +133,7 @@ export const SMainPage = styled.div`
         display: none;
       }
     }
-  }
+  } */
 }
 
 .List {

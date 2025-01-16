@@ -1,10 +1,11 @@
 import { UserElem } from "../UI/UserElem/UserElem"
-import { dataList } from "./DataList"
+import { dataList } from "./dataList"
+import { SList } from "./List.style"
 
 
 export const List = () => {
   return (
-    <div className="List">
+    <SList>
       <div className="List__title">
         <h2>Подписки</h2>
         <span className="count">123</span>
@@ -80,6 +81,6 @@ export const List = () => {
             </div>
             <span className="Badge">3</span>
           </div> */}
-    </div>
+    </SList>
   )
 }

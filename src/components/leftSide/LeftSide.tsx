@@ -1,10 +1,12 @@
 import { List } from "../List/List"
+import { Navbar } from "../Navbar/Navbar"
 
 
 export const LeftSide = () => {
- return(
-  <aside className="LeftSide">
-        <nav className="Navbar">
+  return (
+    <aside className="LeftSide">
+      <Navbar/>
+      {/* <nav className="Navbar">
           <ul className="navbar__list">
             <li className="navbar__item">
               <svg
@@ -161,9 +163,9 @@ export const LeftSide = () => {
               <span className="Badge">100</span>
             </li>
           </ul>
-        </nav>
-        <List/>
-        {/* <div className="List">
+        </nav> */}
+      <List />
+      {/* <div className="List">
           <div className="List__title">
             <h2>Подписки</h2>
             <span className="count">123</span>
@@ -233,6 +235,6 @@ export const LeftSide = () => {
             <span className="Badge">3</span>
           </div>
         </div> */}
-      </aside>
- )
+    </aside>
+  )
 }

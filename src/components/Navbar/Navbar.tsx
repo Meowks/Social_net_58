@@ -1,10 +1,24 @@
+import { dataLiNavbar } from "../UI/LiNavbar/dataLiNavbar"
+import { LiNavbar } from "../UI/LiNavbar/Linavbar"
+import { SNavbar } from "./Navbar.styled"
 
 
 export const Navbar = () => {
   return (
-    <nav className="Navbar">
+    <SNavbar>
       <ul className="navbar__list">
-        <li className="navbar__item">
+
+        {dataLiNavbar.map((elem) => (
+          <LiNavbar
+            liName={elem.liName}
+            liVieBox={elem.liVieBox}
+            liId={elem.liId}
+            liD={elem.liD}
+            liText={elem.liText}
+          />
+
+        ))}
+        {/* <li className="navbar__item">
           <svg
             className="icon icon-profile"
             viewBox="0 0 25 25"
@@ -157,8 +171,8 @@ export const Navbar = () => {
 
           <p className="item__name">Другое</p>
           <span className="Badge">100</span>
-        </li>
+        </li> */}
       </ul>
-    </nav>
+    </SNavbar>
   )
 }
