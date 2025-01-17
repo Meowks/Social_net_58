@@ -1,4 +1,5 @@
 
+import { Badge } from "../Badge/Badge";
 import { SUserElem } from "./UserElem.style";
 
 interface IUserElem {
@@ -15,7 +16,7 @@ export const UserElem = ({ userImg, userMainText, userSecondaryText }: IUserElem
         <p className="main__text">{userMainText}</p>
         <p className="secondary__text">{userSecondaryText}</p>
       </div>
-      <span className="Badge">3</span>
+      <Badge badgeText="3"/>
     </SUserElem>
   )
 }

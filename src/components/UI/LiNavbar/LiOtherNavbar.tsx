@@ -1,5 +1,4 @@
 import React from "react"
-import { Badge } from "../Badge/Badge"
 
 type TLiNavbar = {
   liName:string,
@@ -7,14 +6,18 @@ type TLiNavbar = {
   liId:string,
   liD:string,
   liText:string,
+  liFillRule?:string,
+  liClipRule?:string,
 }& React.LiHTMLAttributes<HTMLLIElement>
 
-export const LiNavbar = ({
+export const LiOtherNavbar = ({
   liName,
   liVieBox,
   liId,
   liD,
   liText,
+  liFillRule,
+  liClipRule,
 }:TLiNavbar)=>{
   return(
     <li className="navbar__item">
@@ -26,12 +29,14 @@ export const LiNavbar = ({
           >
             <path
               id={liId}
+              fillRule="evenodd"
+              clipRule="evenodd"
               d={liD}
             />
           </svg>
+
           <p className="item__name">{liText}</p>
-          <Badge badgeText="1"/>
-          <span className="Badge">1</span>
+          <span className="Badge">100</span>
         </li>
   )
 }
