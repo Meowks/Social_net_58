@@ -16,7 +16,7 @@ export const RegistrationPage = () => {
 
         <AppButton buttonText="Зарегистрироваться" buttonType="button" isDisabled={false} />
       </form>
-      <IconsWrapper regLink="#" regText="Уже есть аккаунт?" regHrefText="Войти" regEnterText="Регистрация с помощью" />
+      <IconsWrapper regLink="../" regText="Уже есть аккаунт?" regHrefText="Войти" regEnterText="Регистрация с помощью" />
     </SLoginPage>
   )
 }

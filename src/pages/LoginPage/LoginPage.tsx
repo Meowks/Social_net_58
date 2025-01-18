@@ -8,20 +8,21 @@ import { SLoginPage } from "./LOginPage.style";
 import * as yup from "yup"
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useLoginUserMutation } from "../../store/API/authApi";
 
 const AuthFormScheme = yup.object({
-  userEmail: 
-  yup.string()
-  .required("Email обязателен")
-  .email("Введите корректный email")
-  .min(4,"Введите минимум 4 символа")
-  .max(30,"Не больше 30 символов"),
+  userEmail:
+    yup.string()
+      .required("Email обязателен")
+      .email("Введите корректный email")
+      .min(4, "Введите минимум 4 символа")
+      .max(30, "Не больше 30 символов"),
 
-  userPassword: 
-  yup.string()
-  .required("Пароль обязателен")
-  .min(6, "Минимум 6 символов")
-  .max(30,"Не больше 30 символов")
+  userPassword:
+    yup.string()
+      .required("Пароль обязателен")
+      .min(6, "Минимум 6 символов")
+      .max(30, "Не больше 30 символов")
 })
 
 export const LoginPage = () => {
@@ -41,8 +42,14 @@ export const LoginPage = () => {
     },
   });
 
+  const [loginUser, { data: userData }] = useLoginUserMutation();
+
   const formData: SubmitHandler<ILoginPage> = (data) => {
-    return console.log(data);
+    const payload = {
+      email: data.userEmail,
+      password: data.userPassword,
+    };
+    loginUser(payload)
   }
 
   return (
@@ -50,46 +57,46 @@ export const LoginPage = () => {
     <SLoginPage>
       <AppHeader AppHeaderText="Авторизация" textType="h1" />
       <form action="#" onSubmit={handleSubmit(formData)}>
-        <Controller 
-        control={control} 
-        name="userEmail" 
-        render={({ field }) => (
-          <AppInput 
-          inputPlaceholder="Ваша почта" 
-          inputType="email" 
-          {...field} 
-          isError={errors.userEmail ? true : false}
-          errorText={errors.userEmail ?.message} 
-          inputValue={field.value}
-          onChange={field.onChange}
-          />
-        )}
+        <Controller
+          control={control}
+          name="userEmail"
+          render={({ field }) => (
+            <AppInput
+              inputPlaceholder="Ваша почта"
+              inputType="email"
+              {...field}
+              isError={errors.userEmail ? true : false}
+              errorText={errors.userEmail?.message}
+              inputValue={field.value}
+              onChange={field.onChange}
+            />
+          )}
         />
         <Controller control={control} name="userPassword" render={({ field }) => (
-          <AppInput 
-          inputPlaceholder="Пароль" 
-          inputType="password" 
-          {...field} 
-          isError={errors.userPassword ? true : false}
-          errorText={errors.userPassword ?.message} 
-          inputValue={field.value}
-          onChange={field.onChange}
+          <AppInput
+            inputPlaceholder="Пароль"
+            inputType="password"
+            {...field}
+            isError={errors.userPassword ? true : false}
+            errorText={errors.userPassword?.message}
+            inputValue={field.value}
+            onChange={field.onChange}
           />
         )}
         />
-        <AppButton 
-        buttonText="Войти" 
-        buttonType="submit" 
-        isDisabled={false} />
+        <AppButton
+          buttonText="Войти"
+          buttonType="submit"
+          isDisabled={false} />
       </form>
-      <AppLink 
-      href="../ForgotPasswordPage" 
-      linkText="Забыли пароль?" />
-      <IconsWrapper 
-      regLink="./RegistrationPage" 
-      regText="У вас нет аккаунта?" 
-      regHrefText="Зарегистрироваться" 
-      regEnterText="Войти с помощью" />
+      <AppLink
+        href="../ForgotPasswordPage"
+        linkText="Забыли пароль?" />
+      <IconsWrapper
+        regLink="./RegistrationPage"
+        regText="У вас нет аккаунта?"
+        regHrefText="Зарегистрироваться"
+        regEnterText="Войти с помощью" />
     </SLoginPage>
   );
 };

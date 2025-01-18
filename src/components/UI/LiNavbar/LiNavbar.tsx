@@ -31,7 +31,6 @@ export const LiNavbar = ({
           </svg>
           <p className="item__name">{liText}</p>
           <Badge badgeText="1"/>
-          <span className="Badge">1</span>
         </li>
   )
 }

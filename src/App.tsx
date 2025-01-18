@@ -24,6 +24,14 @@ function App() {
       path: "profile-page",
       element: <ProfilePage />,
     },
+    {
+      path: "ForgotPasswordPage",
+      element: <ForgotPasswordPage/>,
+    },
+    {
+      path: "RegistrationPage",
+      element: <RegistrationPage />,
+    },
   ])
 
   return (

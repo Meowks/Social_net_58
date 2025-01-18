@@ -10,7 +10,7 @@ type TAppInput = {
   onChange?: ()=>void, 
 }& React.InputHTMLAttributes<HTMLInputElement>;
 
-export const AppInput = ({
+export const AppInput = React.forwardRef<HTMLInputElement, TAppInput>(({
   inputType,
   inputPlaceholder,
   inputValue,
@@ -20,7 +20,7 @@ export const AppInput = ({
   
 
   ...props
-}: TAppInput) => {
+}, ref) => {
   return (
     <>
     <SAppInput
@@ -28,11 +28,12 @@ export const AppInput = ({
       placeholder={inputPlaceholder}
       value={inputValue}
       onChange={onChange}
-
+      ref={ref}
 
       {...props}
     />
     {isError && <SErrorText>{errorText}</SErrorText>}
     </>
   );
-};
+}
+)
