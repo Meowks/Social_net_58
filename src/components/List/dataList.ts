@@ -46,3 +46,22 @@ export const dataList:IDataList[] = [
     listSecondary: "Мода",
   },
 ];
+
+export const dataRightList:IDataList[] = [
+  {
+    listImg: "./img/users/aleksandr-maykov.jpeg",
+    listMain: "Александр Майков",
+    listSecondary: "Онлайн",
+  },
+  {
+    listImg: "./img/users/aleksandr-maykov.jpeg",
+    listMain: "Александр Майков",
+    listSecondary: "Онлайн",
+  },
+  {
+    listImg: "./img/users/aleksandr-maykov.jpeg",
+    listMain: "Александр Майков",
+    listSecondary: "Онлайн",
+  },
+  
+]

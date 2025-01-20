@@ -5,6 +5,8 @@ import { AppLink } from "../../components/UI/AppLink/AppLink";
 import { IconsWrapper } from "../../components/UI/IconsWrapper/IconsWrapper";
 import { SLoginPage } from "./LOginPage.style";
 
+import { useNavigate } from "react-router-dom";
+
 import * as yup from "yup"
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,6 +32,9 @@ export const LoginPage = () => {
     userEmail: string,
     userPassword: string,
   }
+
+  const navigate = useNavigate();
+
   const {
     control,
     handleSubmit,
@@ -44,7 +49,7 @@ export const LoginPage = () => {
 
   const [loginUser, { data: userData }] = useLoginUserMutation();
 
-  const formData: SubmitHandler<ILoginPage> = (data) => {
+  const formData: SubmitHandler<ILoginPage> = async (data) => {
     const payload = {
       email: data.userEmail,
       password: data.userPassword,
@@ -52,11 +57,13 @@ export const LoginPage = () => {
     loginUser(payload)
   }
 
+  
+
   return (
 
     <SLoginPage>
       <AppHeader AppHeaderText="Авторизация" textType="h1" />
-      <form action="#" onSubmit={handleSubmit(formData)}>
+      <form  onSubmit={handleSubmit(formData)}>
         <Controller
           control={control}
           name="userEmail"
@@ -84,6 +91,7 @@ export const LoginPage = () => {
           />
         )}
         />
+
         <AppButton
           buttonText="Войти"
           buttonType="submit"

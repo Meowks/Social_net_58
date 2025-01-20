@@ -7,7 +7,7 @@ type TAppInput = {
   inputValue?: string,
   isError?: boolean,
   errorText?: string,
-  onChange?: ()=>void, 
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>)=>void, 
 }& React.InputHTMLAttributes<HTMLInputElement>;
 
 export const AppInput = React.forwardRef<HTMLInputElement, TAppInput>(({

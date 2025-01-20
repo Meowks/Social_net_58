@@ -19,6 +19,7 @@ export const AppButton = ({
       type={buttonType}
       disabled={isDisabled}
       onClick={buttonClick}
+      
     >
       {buttonText}
     </SAppButton>

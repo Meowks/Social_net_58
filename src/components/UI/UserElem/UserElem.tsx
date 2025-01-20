@@ -16,7 +16,10 @@ export const UserElem = ({ userImg, userMainText, userSecondaryText }: IUserElem
         <p className="main__text">{userMainText}</p>
         <p className="secondary__text">{userSecondaryText}</p>
       </div>
-      <Badge badgeText="3"/>
+      <span className="Badge">1</span>
+      {/* <Badge badgeText="3"/> */}
     </SUserElem>
   )
 }
+
+

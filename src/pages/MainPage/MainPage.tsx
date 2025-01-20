@@ -1,4 +1,5 @@
 import { LeftSide } from "../../components/leftSide/LeftSide";
+import { RightSide } from "../../components/RightSide/RightSide";
 import { AppInput } from "../../components/UI/AppInput/AppInput";
 import { Header } from "../../components/UI/Header/Header";
 import { SMainPage } from "./SMainPage.style";
@@ -239,6 +240,7 @@ export const MainPage = () => {
           </div>
         </div>
       </aside>  */}
+
       <main className="Main">
         <div className="WhatsNew">
           <img src="./img/users/arina-volkova.jpeg" alt="User" />
@@ -641,7 +643,9 @@ export const MainPage = () => {
           </svg>
         </div>
       </main>
-      <aside className="RightSide">
+
+        <RightSide/>
+      {/* <aside className="RightSide">
         <div className="List">
           <div className="List__title">
             <h2>Близкие друзья</h2>
@@ -726,7 +730,7 @@ export const MainPage = () => {
             <div className="plus-button"></div>
           </div>
         </div>
-      </aside>
+      </aside> */}
     </SMainPage>
     </>
   );

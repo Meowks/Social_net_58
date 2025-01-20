@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const SUserElem = styled.div`
  
-
+ 
   cursor: pointer;
   position: relative;
   list-style: none;
@@ -27,10 +27,7 @@ export const SUserElem = styled.div`
       color: white;
     }
 
-    .Badge {
-      background-color: white;
-      color: ${(props) => props.theme.color.textColor};
-    }
+    
   }
 
   &:not(:last-child) {
@@ -73,27 +70,9 @@ export const SUserElem = styled.div`
     &._online {
       color: ${(props) => props.theme.color.green};
     }
-  }
+}
+
+
+    
   
-    /* cursor: default;
-    padding: 0;
-    margin-bottom: 30px;
-
-    &:hover {
-      background-color: initial;
-      scale: 1;
-    }
-
-    &::after {
-      display: none; //? нижняя полоса в списке
-    }
-
-    img {
-      flex: 0 0 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-    } */
-  
-
 `
