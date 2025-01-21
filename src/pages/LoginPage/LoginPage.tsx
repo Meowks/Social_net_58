@@ -11,6 +11,9 @@ import * as yup from "yup"
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useLoginUserMutation } from "../../store/API/authApi";
+import { useSelector } from "react-redux";
+import { RootState } from '../../store/store'
+import { useEffect } from "react";
 
 const AuthFormScheme = yup.object({
   userEmail:
@@ -26,12 +29,14 @@ const AuthFormScheme = yup.object({
       .min(6, "Минимум 6 символов")
       .max(30, "Не больше 30 символов")
 })
-
-export const LoginPage = () => {
   interface ILoginPage {
     userEmail: string,
     userPassword: string,
   }
+
+export const LoginPage = () => {
+
+  const user = useSelector((state:RootState) => state.user.user)
 
   const navigate = useNavigate();
 
@@ -42,8 +47,8 @@ export const LoginPage = () => {
   } = useForm<ILoginPage>({
     resolver: yupResolver(AuthFormScheme),
     defaultValues: {
-      userEmail: "",
-      userPassword: "",
+      userEmail: `${user?.email ? user.email : ""}`,
+      userPassword: `${user?.password ? user.password : ""}`,
     },
   });
 
@@ -57,13 +62,17 @@ export const LoginPage = () => {
     loginUser(payload)
   }
 
-  
+  useEffect(()=>{
+    if (userData?.user_id){
+      navigate("/main-page")
+    }
+  })
 
   return (
 
     <SLoginPage>
       <AppHeader AppHeaderText="Авторизация" textType="h1" />
-      <form  onSubmit={handleSubmit(formData)}>
+      <form onSubmit={handleSubmit(formData)}>
         <Controller
           control={control}
           name="userEmail"
