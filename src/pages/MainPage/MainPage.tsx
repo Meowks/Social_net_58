@@ -9,10 +9,12 @@ import { useGetAllPostsQuery } from "../../store/API/postApi";
 
 export const MainPage = () => {
   const [liked, setLiked] = useState(false)
+  const [mark, setMark] = useState(false)
   const { data, isLoading, isSuccess } = useGetAllPostsQuery(null)
 
   return (
     <>
+    {isLoading && <div>Loading...</div>}
       <Header />
       <SMainPage >
         <LeftSide />
@@ -398,8 +400,9 @@ export const MainPage = () => {
           {data?.message.length && data.message.map((elem) =>
             <Post
               isLiked={liked}
-              isMarked={true}
+              isMarked={mark}
               likeClick={() => setLiked(!liked)}
+              markClick={()=>setMark(!mark)}
               postText={elem.main_text}
               regDate={elem.reg_date}
               userName={elem.user_fk.name}
