@@ -55,18 +55,24 @@ export const LoginPage = () => {
   const [loginUser, { data: userData }] = useLoginUserMutation();
 
   const formData: SubmitHandler<ILoginPage> = async (data) => {
-    const payload = {
-      email: data.userEmail,
-      password: data.userPassword,
-    };
-    loginUser(payload)
-  }
-
-  useEffect(()=>{
-    if (userData?.user_id){
-      navigate("/main-page")
+    try {
+      const payload = {
+        email: data.userEmail,
+        password: data.userPassword,
+      };
+      const response = await loginUser(payload).unwrap(); // Убедитесь, что API возвращает результат
+      console.log("Успешный вход:", response); // Лог ответа
+    } catch (error) {
+      console.error("Ошибка входа:", error); // Лог ошибки
     }
-  })
+  };
+
+  useEffect(() => {
+    console.log("Данные пользователя:", userData); // Лог для отладки
+    if (userData?.user_id) {
+      navigate("/main-page");
+    }
+  }, [userData, navigate]);
 
   return (
 

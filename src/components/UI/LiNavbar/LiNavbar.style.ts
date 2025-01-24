@@ -26,6 +26,10 @@ export const SLiNavbar = styled.li`
 
   &:hover {
     background-color: ${(props) => props.theme.color.lightGray};
+
+    .Badge{
+      background-color: ${(props) => props.theme.color.lightGray};
+    }
   }
 
   &:active {

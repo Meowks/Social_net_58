@@ -451,7 +451,10 @@ export const SMainPage = styled.div`
   }
 }
 
-.Post {
+
+
+
+ /* .Post {
   box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
   padding: calc(1vw + 11px);
   background-color: ${(props) => props.theme.color.elemsBgc};
@@ -509,8 +512,13 @@ export const SMainPage = styled.div`
   &__text {
     margin-bottom: 20px;
   }
-}
+}  */
 
+
+
+
+
+  
 .icon-more {
   cursor: pointer;
   position: absolute;

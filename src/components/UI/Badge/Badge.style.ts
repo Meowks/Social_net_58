@@ -5,12 +5,15 @@ export const SBadge = styled.span`
 
   background-color: white;
   color: ${(props) => props.theme.color.textColor};
-  
-  &:active {
-    transition: 100ms;
-    background-color: ${(props) => props.theme.color.primeColor};
-    color: white;
 
+  &:hover {
+    background-color: ${(props) => props.theme.color.lightGray};
+  }
+  
+  &:active{
+
+    padding: 3px 10px;
+    border-radius: 20px;  
   }
 
 @media (max-width: 1100px) {
