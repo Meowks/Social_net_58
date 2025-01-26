@@ -17,6 +17,7 @@ export const List = () => {
           userImg={elem.listImg}
           userMainText={elem.listMain}
           userSecondaryText={elem.listSecondary}
+          classBadge="Badge"
         />
       ))}
       {/* <div className="UserElem">
@@ -99,6 +100,7 @@ export const ListRight = () => {
           userImg={elem.listImg}
           userMainText={elem.listMain}
           userSecondaryText={elem.listSecondary}
+          classBadge="Badge"
         />
       ))}
     </SList>

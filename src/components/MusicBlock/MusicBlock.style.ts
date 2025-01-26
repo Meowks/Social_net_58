@@ -8,7 +8,7 @@ export const SMusicBlock = styled.div`
   padding: calc(1vw + 11px);
   border-radius: 20px;
 
-  &__title {
+  .MusicBlock__title {
     margin-bottom: 20px;
 
     display: flex;

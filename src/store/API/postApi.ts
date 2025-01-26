@@ -25,15 +25,22 @@ interface IGetAllPostsResponse {
   message: IPost[]
 }
 
+interface IGetPostByIdResponse {
+  status: number,
+  message: IPost,
+}
 
 export const postApi = createApi({
   reducerPath: "postApi",
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getAllPosts: builder.query<IGetAllPostsResponse, null>({
-      query:()=> "/post",
-    })
+      query: () => "/post",
+    }),
+    getPostById: builder.query<IGetPostByIdResponse, string>({
+      query: (postId) => `/post?post_id=${postId}`
+    }),
   })
 })
 
-export const {useGetAllPostsQuery, useLazyGetAllPostsQuery} = postApi;
+export const { useGetAllPostsQuery, useLazyGetAllPostsQuery, useLazyGetPostByIdQuery} = postApi;

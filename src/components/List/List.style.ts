@@ -10,7 +10,7 @@ export const SList = styled.div`
   border-radius: 20px;
   padding: calc(1vw + 11px);
 
-  &__title {
+  .List__title {
     margin-bottom: 20px;
 
     display: flex;

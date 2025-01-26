@@ -1,14 +1,15 @@
 
-import { Badge } from "../Badge/Badge";
+
 import { SUserElem } from "./UserElem.style";
 
 interface IUserElem {
   userImg: string;
   userMainText: string;
   userSecondaryText: string;
+  classBadge?:string;
 }
 
-export const UserElem = ({ userImg, userMainText, userSecondaryText }: IUserElem) => {
+export const UserElem = ({ userImg, userMainText, userSecondaryText, classBadge }: IUserElem) => {
   return (
     <SUserElem>
       <img src={userImg} alt="User" />
@@ -16,7 +17,7 @@ export const UserElem = ({ userImg, userMainText, userSecondaryText }: IUserElem
         <p className="main__text">{userMainText}</p>
         <p className="secondary__text">{userSecondaryText}</p>
       </div>
-      <span className="Badge">1</span>
+      <span className={classBadge}>1</span> {/* Вместо пропса 'classBadge' = "Badge" /*}
       {/* <Badge badgeText="3"/> */}
     </SUserElem>
   )

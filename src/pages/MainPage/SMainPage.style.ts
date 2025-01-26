@@ -454,38 +454,38 @@
 
 
 
-//   .Post {
-//   box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
-//   padding: calc(1vw + 11px);
-//   background-color: ${(props) => props.theme.color.elemsBgc};
-//   border-radius: 20px;
-//   margin-bottom: 20px;
+  // .Post {
+  // box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
+  // padding: calc(1vw + 11px);
+  // background-color: ${(props) => props.theme.color.elemsBgc};
+  // border-radius: 20px;
+  // margin-bottom: 20px;
 
-//   position: relative;
+  // position: relative;
 
-//   &._liked {
-//     .icon-wrapper {
-//       .icon-like {
-//         fill: ${(props) => props.theme.color.red};
-//         stroke: 0;
-//         stroke-width: 0;
-//       }
+  // &._liked {
+  //   .icon-wrapper {
+  //     .icon-like {
+  //       fill: ${(props) => props.theme.color.red};
+  //       stroke: 0;
+  //       stroke-width: 0;
+  //     }
 
-//       .likes-count {
-//         color: ${(props) => props.theme.color.red};
-//       }
-//     }
-//   }
+  //     .likes-count {
+  //       color: ${(props) => props.theme.color.red};
+  //     }
+  //   }
+  // }
 
-//   &._marked {
-//     .icon-wrapper {
-//       .icon-mark {
-//         fill: ${(props) => props.theme.color.primeColor};
-//         stroke: 0;
-//         stroke-width: 0;
-//       }
-//     }
-//   }
+  // &._marked {
+  //   .icon-wrapper {
+  //     .icon-mark {
+  //       fill: ${(props) => props.theme.color.primeColor};
+  //       stroke: 0;
+  //       stroke-width: 0;
+  //     }
+  //   }
+  // }
 
 //   .UserElem {
 //     cursor: default;
@@ -879,7 +879,7 @@ export const SMainPage = styled.div`
 
 
 
-.WhatsNew {
+/* .WhatsNew {
   box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
   background-color: ${(props) => props.theme.color.elemsBgc};
   border-radius: 20px;
@@ -939,9 +939,9 @@ export const SMainPage = styled.div`
   .WhatsNew {
     padding: 10px 15px;
   }
-}
+} */
 
-.History {
+/* .History {
   position: relative;
   overflow: visible;
   margin-bottom: 20px;
@@ -1103,7 +1103,7 @@ export const SMainPage = styled.div`
       background-color: transparent;
     }
   }
-} 
+}  */
 
 /* .Post {
   box-shadow: 0 0 10px ${(props) => props.theme.color.lightGray};
@@ -1169,7 +1169,7 @@ export const SMainPage = styled.div`
   }
 }
 
-.media-container {
+ /* .media-container {
   display: grid;
   gap: 5px;
 
@@ -1195,15 +1195,15 @@ export const SMainPage = styled.div`
     grid-template-rows: minmax(100px, 200px);
     grid-auto-rows: minmax(100px, 200px);
   }
-}
+}  */
 
-.Repost__wrapper {
+ /* .Repost__wrapper {
   border-left: 1px solid ${(props) => props.theme.color.gray};
   padding-left: 30px;
   margin-left: 30px;
-}
+}  */
 
-.PostControls {
+ /* .PostControls {
   display: grid;
   grid-template-columns: repeat(3, auto) 2fr;
 
@@ -1244,27 +1244,28 @@ export const SMainPage = styled.div`
       overflow: visible;
       //fill: transparent;
       transition: 200ms;
+      
     }
 
     .icon-like {
       stroke: ${(props) => props.theme.color.darkGray};
-      //stroke-width: 2px;
+      stroke-width: 2px;
     }
 
     .icon-mark {
       stroke: ${(props) => props.theme.color.darkGray};
-      //stroke-width: 2px;
+      stroke-width: 2px;
     }
 
     &.mark {
       justify-self: self-end;
     }
   } 
-}
+}  */
 
 
 
-.CommentBlock {
+ .CommentBlock {
   cursor: pointer;
   position: relative;
   list-style: none;
@@ -1354,7 +1355,7 @@ export const SMainPage = styled.div`
       fill: ${(props) => props.theme.color.primeColor};
     }
   }
-}
+} 
 
 `
 

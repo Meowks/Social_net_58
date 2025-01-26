@@ -1,3 +1,4 @@
+import { SMediaContainer, SPostControls } from "../PostRepost/PostRepost.styled";
 import { SUserElem } from "../UI/UserElem/UserElem.style";
 import { SPost } from "./Post.style";
 
@@ -11,7 +12,15 @@ interface IPostProps {
   postText: string;
 }
 
-export const Post = ({ isLiked, isMarked, likeClick, markClick, postText, regDate, userName }: IPostProps) => {
+export const Post = ({
+   isLiked, 
+   isMarked, 
+   likeClick, 
+   markClick, 
+   postText, 
+   regDate, 
+   userName 
+  }: IPostProps) => {
   return (
     <SPost
       $isLiked={isLiked}
@@ -27,7 +36,7 @@ export const Post = ({ isLiked, isMarked, likeClick, markClick, postText, regDat
         </div>
       </SUserElem>
       <p className="Post__text">{postText}</p>
-      <div className="media-container">
+      <SMediaContainer>
         <img
           className="media__item"
           src="./img/post/nature-1.png"
@@ -58,8 +67,8 @@ export const Post = ({ isLiked, isMarked, likeClick, markClick, postText, regDat
           src="./img/post/nature-6.png"
           alt="Post Item"
         />
-      </div>
-      <div className="PostControls">
+      </SMediaContainer>
+      <SPostControls>
         <div className="icon-wrapper like" onClick={likeClick}>
           <span className="count likes-count">-500</span>
           <svg
@@ -112,7 +121,7 @@ export const Post = ({ isLiked, isMarked, likeClick, markClick, postText, regDat
             />
           </svg>
         </div>
-      </div>
+      </SPostControls>
       <div className="CommentBlock">
         <img src="./img/users/aleksandr-maykov.jpeg" alt="User" />
         <div className="comment__description">
