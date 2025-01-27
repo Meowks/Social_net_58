@@ -10,6 +10,7 @@ interface IPostProps {
   userName: string;
   regDate: string;
   postText: string;
+  
 }
 
 export const Post = ({
@@ -19,7 +20,8 @@ export const Post = ({
    markClick, 
    postText, 
    regDate, 
-   userName 
+   userName,
+   
   }: IPostProps) => {
   return (
     <SPost

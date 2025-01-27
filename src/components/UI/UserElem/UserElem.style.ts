@@ -17,10 +17,37 @@ export const SUserElem = styled.div`
   transition: 200ms;
 
   .Badge {
-      background-color: ${(props) => props.theme.color.primeColor} /* каласс Badge что бы не потерять */
-       }
+    background-color: ${(props) => props.theme.color.primeColor} /* каласс Badge что бы не потерять */
+  }
 
-  &:hover {
+
+  img {
+    flex: 0 0 60px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .user__description {
+    flex: 1 1 auto;
+
+    .main__text {
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+  }
+
+  .secondary__text {
+    font-size: calc(0.4vw + 8px); //? 14 - 1440 | 16 - 1920
+    font-weight: 300;
+
+    &._online {
+      color: ${(props) => props.theme.color.green};
+    }
+  }
+
+&:hover {
     background-color: ${(props) => props.theme.color.lightGray};
   }
 
@@ -52,34 +79,6 @@ export const SUserElem = styled.div`
       transform: translateX(-50%);
     }
   }
-
-  img {
-    flex: 0 0 60px;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .user__description {
-    flex: 1 1 auto;
-
-    .main__text {
-      margin-bottom: 5px;
-      display: inline-block;
-    }
-  }
-
-  .secondary__text {
-    font-size: calc(0.4vw + 8px); //? 14 - 1440 | 16 - 1920
-    font-weight: 300;
-
-    &._online {
-      color: ${(props) => props.theme.color.green};
-    }
-}
-
-
     
   
 `
