@@ -1,7 +1,7 @@
 import { SPost } from "../Post/Post.style";
 import { UserElem } from "../UI/UserElem/UserElem";
 import { SUserElem } from "../UI/UserElem/UserElem.style";
-import { SMediaContainer, SPostControls, SPostRepost } from "./PostRepost.styled";
+import { SCommentBlock, SMediaContainer, SPostControls, SPostRepost } from "./PostRepost.styled";
 
 interface IPostRepost {
   isLiked:boolean;
@@ -29,29 +29,13 @@ export const PostRepost = ({
           userSecondaryText="20 марта 23:31"
         />
 
-        {/* <div className="UserElem Repost__owner">
-          <img src="./img/users/mark-krahmalev.jpeg" alt="User" />
-          <div className="user__description">
-            <a href="#" className="main__text">
-              Марк Крахмалев
-            </a>
-            <p className="secondary__text">20 марта 23:31</p>
-          </div>
-        </div> */}
+        
         <SPostRepost>
           <UserElem 
             userImg="./img/users/aleksandr-maykov.jpeg" 
             userMainText="Александр Майков" 
             userSecondaryText="Сегодня 9:37"/>
-          {/* <SUserElem>
-            <img src="./img/users/aleksandr-maykov.jpeg" alt="User" />
-            <div className="user__description">
-              <a href="#" className="main__text">
-                Александр Майков
-              </a>
-              <p className="secondary__text">Сегодня 9:37</p>
-            </div>
-          </SUserElem> */}
+          
           <SMediaContainer>
             <img
               className="media__item"
@@ -119,7 +103,7 @@ export const PostRepost = ({
             </svg>
           </div>
         </SPostControls>
-        <div className="CommentBlock">
+        <SCommentBlock>
           <img src="./img/users/aleksandr-maykov.jpeg" alt="User" />
           <div className="comment__description">
             <a href="#" className="comment__owner">
@@ -141,7 +125,7 @@ export const PostRepost = ({
               d="M11.5 23L9.8325 21.3455C3.91 15.4921 0 11.6191 0 6.89373C0 3.02071 2.783 0 6.325 0C8.326 0 10.2465 1.01526 11.5 2.60708C12.7535 1.01526 14.674 0 16.675 0C20.217 0 23 3.02071 23 6.89373C23 11.6191 19.09 15.4921 13.1675 21.3455L11.5 23Z"
             />
           </svg>
-        </div>
+        </SCommentBlock>
         <svg
           className="icon icon-more"
           viewBox="0 0 25 5"

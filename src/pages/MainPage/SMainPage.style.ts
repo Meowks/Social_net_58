@@ -1265,7 +1265,7 @@ export const SMainPage = styled.div`
 
 
 
- .CommentBlock {
+ /* .CommentBlock {
   cursor: pointer;
   position: relative;
   list-style: none;
@@ -1355,7 +1355,7 @@ export const SMainPage = styled.div`
       fill: ${(props) => props.theme.color.primeColor};
     }
   }
-} 
+}  */
 
 `
 

@@ -1,38 +1,24 @@
-import React from "react"
-import { Badge } from "../Badge/Badge"
-import { SLiNavbar } from "./LiNavbar.style"
+import React from "react";
+import parse from "html-react-parser";
+import { SLiNavbar } from "./LiNavbar.style";
+
 
 type TLiNavbar = {
-  liName: string,
-  liVieBox: string,
-  liId: string,
-  liD: string,
-  liText: string,
+  navSvg:string,
+  navText:string,
+  navBadge:number,
 } & React.LiHTMLAttributes<HTMLLIElement>
 
 export const LiNavbar = ({
-  liName,
-  liVieBox,
-  liId,
-  liD,
-  liText,
+  navSvg,
+  navText,
+  navBadge,
 }: TLiNavbar) => {
   return (
     <SLiNavbar>
-      <svg
-        className={liName}
-        viewBox={liVieBox}
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          id={liId}
-          d={liD}
-        />
-      </svg>
-      <p className="item__name">{liText}</p>
-      
-       <span className="Badge">1</span> 
+      {parse(navSvg)}
+      <p className="item__name">{navText}</p>
+      <span className="Badge">{navBadge}</span>
     </SLiNavbar>
   )
 }

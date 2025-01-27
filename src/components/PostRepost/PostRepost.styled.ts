@@ -100,11 +100,7 @@ export const SPostControls = styled.div`
 
 `
 
-export const SIconWrpper = styled.div`
-
-`
-
-export const SPostComment = styled.div`
+export const SCommentBlock = styled.div`
 
   cursor: pointer;
   position: relative;

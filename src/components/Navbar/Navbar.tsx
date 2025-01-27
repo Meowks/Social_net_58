@@ -1,7 +1,7 @@
 import { dataLiNavbar } from "../UI/LiNavbar/dataLiNavbar"
 import { LiNavbar } from "../UI/LiNavbar/LiNavbar"
 import { SNavbar } from "./Navbar.styled"
-import { LiOtherNavbar } from "../UI/LiNavbar/LiOtherNavbar"
+
 
 
 export const Navbar = () => {
@@ -11,20 +11,13 @@ export const Navbar = () => {
 
         {dataLiNavbar.map((elem) => (
           <LiNavbar
-            liName={elem.liName}
-            liVieBox={elem.liVieBox}
-            liId={elem.liId}
-            liD={elem.liD}
-            liText={elem.liText}
+            navSvg={elem.navSvg}
+            navText={elem.navText}
+            navBadge={elem.navBadge}
           />
 
         ))}
-         <LiOtherNavbar 
-         liName="icon icon-other" 
-         liVieBox="0 0 25 25" 
-         liId="other" 
-         liD="M12.5 25C19.4036 25 25 19.4036 25 12.5C25 5.59644 19.4036 0 12.5 0C5.59644 0 0 5.59644 0 12.5C0 19.4036 5.59644 25 12.5 25ZM6.00481 10.75L12.5 16L18.9952 10.75H6.00481Z" 
-         liText="Другое"/>
+         
 
          
         {/* <li className="navbar__item">

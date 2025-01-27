@@ -16,6 +16,10 @@ export const SUserElem = styled.div`
 
   transition: 200ms;
 
+  .Badge {
+      background-color: ${(props) => props.theme.color.primeColor} /* каласс Badge что бы не потерять */
+       }
+
   &:hover {
     background-color: ${(props) => props.theme.color.lightGray};
   }
@@ -27,7 +31,10 @@ export const SUserElem = styled.div`
       color: white;
     }
 
-    
+    .Badge {
+         background-color: white;
+         color: ${(props) => props.theme.color.textColor};
+       }
   }
 
   &:not(:last-child) {
