@@ -81,6 +81,7 @@ export const SPostControls = styled.div`
       fill: transparent;
       transition: 200ms;
       
+      
     }
 
     .icon-like {

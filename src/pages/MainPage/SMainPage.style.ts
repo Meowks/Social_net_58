@@ -1145,7 +1145,22 @@ export const SMainPage = styled.div`
   }
 } */
 
-.icon-more {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .icon-more {
   cursor: pointer;
   position: absolute;
   top: calc(1vw + 11px);
@@ -1167,7 +1182,28 @@ export const SMainPage = styled.div`
     background-color: ${(props) => props.theme.color.primeColor};
     fill: white;
   }
-}
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  /* .media-container {
   display: grid;

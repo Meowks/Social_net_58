@@ -30,6 +30,16 @@ interface IGetPostByIdResponse {
   message: IPost,
 }
 
+interface IAddNewPostPayload {
+  user_id: number,
+  main_text: string,
+}
+
+interface IAddNewPostResponse {
+  status: number,
+  post_id: number,
+}
+
 export const postApi = createApi({
   reducerPath: "postApi",
   baseQuery: fetchBaseQuery({ baseUrl }),
@@ -40,7 +50,14 @@ export const postApi = createApi({
     getPostById: builder.query<IGetPostByIdResponse, string>({
       query: (postId) => `/post?post_id=${postId}`
     }),
+    addNewPost: builder.mutation<IAddNewPostResponse, IAddNewPostPayload>({
+      query: (payload) => ({
+        url: "/post",
+        method: "POST",
+        body: payload,
+      })
+    })
   })
 })
 
-export const { useGetAllPostsQuery, useLazyGetAllPostsQuery, useLazyGetPostByIdQuery} = postApi;
+export const { useGetAllPostsQuery, useLazyGetAllPostsQuery, useLazyGetPostByIdQuery } = postApi;

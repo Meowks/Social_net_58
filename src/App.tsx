@@ -6,6 +6,7 @@ import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { SContainer } from "./themes/Container.style";
+import { PostPage } from "./pages/PostPage/PostPage";
 
 
 
@@ -31,6 +32,10 @@ function App() {
     {
       path: "RegistrationPage",
       element: <RegistrationPage />,
+    },
+    {
+      path: "/posts/:postId",
+      element: <PostPage/>,
     },
   ])
 

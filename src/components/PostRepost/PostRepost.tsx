@@ -2,6 +2,8 @@ import { SPost } from "../Post/Post.style";
 import { UserElem } from "../UI/UserElem/UserElem";
 import { SUserElem } from "../UI/UserElem/UserElem.style";
 import { SCommentBlock, SMediaContainer, SPostControls, SPostRepost } from "./PostRepost.styled";
+import { PostSettings } from "../Post/PostSettings";
+import { useState } from "react";
 
 interface IPostRepost {
   isLiked:boolean;
@@ -16,6 +18,9 @@ export const PostRepost = ({
   likeClickPost,
   markClickPost,
 }:IPostRepost) => {
+
+  const [isSettingStatus, setIsSettingStatus] = useState<boolean>(false)
+
   return (
     <SPost
      $isLiked={isLiked} 
@@ -130,6 +135,7 @@ export const PostRepost = ({
           className="icon icon-more"
           viewBox="0 0 25 5"
           xmlns="http://www.w3.org/2000/svg"
+          onClick={()=>setIsSettingStatus(!isSettingStatus)}
         >
           <g id="more">
             <circle id="ellipse" cx="22.5" cy="2.5" r="2.5" />
@@ -138,6 +144,7 @@ export const PostRepost = ({
           </g>
         </svg>
       </div>
+      {isSettingStatus && <PostSettings/>}
     </SPost>
   );
 };
