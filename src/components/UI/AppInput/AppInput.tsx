@@ -18,7 +18,6 @@ export const AppInput = React.forwardRef<HTMLInputElement, TAppInput>(({
   errorText,
   onChange,
   
-
   ...props
 }, ref) => {
   return (
