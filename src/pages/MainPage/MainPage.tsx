@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useGetAllPostsQuery } from "../../store/API/postApi";
+import { useEffect, useState } from "react";
+import { useGetAllPostsQuery, useLazyGetAllPostsQuery } from "../../store/API/postApi";
 
 import { LeftSide } from "../../components/leftSide/LeftSide";
 import { RightSide } from "../../components/RightSide/RightSide";
@@ -7,7 +7,6 @@ import { RightSide } from "../../components/RightSide/RightSide";
 import { Post } from "../../components/Post/Post";
 import { Header } from "../../components/UI/Header/Header";
 import { SMainPage } from "./SMainPage.style";
-
 
 import { WhatsNew } from "../../components/WhatsNew/WhatsNew";
 import { History } from "../../components/History/History";
@@ -17,32 +16,34 @@ export const MainPage = () => {
   const [liked, setLiked] = useState(false)
   const [mark, setMark] = useState(false)
 
-  const[likedPost, setLikedPost] = useState(false)
-  const[markPost, setMarkPost] = useState(false)
+  const [likedPost, setLikedPost] = useState(false)
+  const [markPost, setMarkPost] = useState(false)
 
 
-  const { data, isLoading, isSuccess } = useGetAllPostsQuery(null)
+  const [fetchTrigger, { data }] = useLazyGetAllPostsQuery()
+  useEffect(() => {
+    fetchTrigger(null);
+  }, [data]);
 
   return (
     <>
-    {isLoading && <div>Loading...</div>}
       <Header />
       <SMainPage >
         <LeftSide />
-        
 
-        <main className="Main"> 
-          <WhatsNew/>
-          <History/>
 
-          <PostRepost 
-           isMarked={markPost}
-           isLiked={likedPost} 
-           likeClickPost={() => setLikedPost(!likedPost)}
-           markClickPost={()=> setMarkPost(!markPost)}
-           />
+        <main className="Main">
+          <WhatsNew onNewPostAdded={() => fetchTrigger(null)} />
+          <History />
 
-          {data?.message.length && data.message.map((elem) =>
+          <PostRepost
+            isMarked={markPost}
+            isLiked={likedPost}
+            likeClickPost={() => setLikedPost(!likedPost)}
+            markClickPost={() => setMarkPost(!markPost)}
+          />
+
+          {!!data?.message.length && [...data.message].reverse().map((elem) => (
             <Post
               isLiked={liked}
               isMarked={mark}
@@ -51,13 +52,13 @@ export const MainPage = () => {
               postText={elem.main_text}
               regDate={elem.reg_date}
               userName={elem.user_fk.name}
-              
+
             />
-          )}
+          ))}
 
-          
 
-          
+
+
         </main>
 
         <RightSide />
@@ -428,7 +429,7 @@ export const MainPage = () => {
             </div>
           </div> */}
 
-          {/* <div className="History">
+{/* <div className="History">
             <svg
               className="icon icon-slider-button"
               xmlns="http://www.w3.org/2000/svg"
@@ -532,11 +533,11 @@ export const MainPage = () => {
             </div>
           </div> */}
 
-          
 
-          
 
-          {/* <div className="Post _liked _marked">
+
+
+{/* <div className="Post _liked _marked">
           <div className="UserElem">
             <img src="./img/users/aleksandr-maykov.jpeg" alt="User" />
             <div className="user__description">
@@ -668,7 +669,7 @@ export const MainPage = () => {
             </g>
           </svg>
         </div> */}
-          {/* <div className="Post Repost _liked _marked">
+{/* <div className="Post Repost _liked _marked">
             <div className="UserElem Repost__owner">
               <img src="./img/users/mark-krahmalev.jpeg" alt="User" />
               <div className="user__description">
