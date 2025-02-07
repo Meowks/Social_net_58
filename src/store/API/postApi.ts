@@ -40,6 +40,20 @@ interface IAddNewPostResponse {
   post_id: number,
 }
 
+interface IEditPostPayload {
+  post_id: number,
+  new_text: string,
+}
+
+interface IEditPostResponse {
+  status: number,
+  message: string,
+}
+
+interface IDeletePostResponse extends IEditPostResponse{}
+
+
+
 export const postApi = createApi({
   reducerPath: "postApi",
   baseQuery: fetchBaseQuery({ baseUrl }),
@@ -55,9 +69,30 @@ export const postApi = createApi({
         url: "/post",
         method: "POST",
         body: payload,
-      })
+      }),
+    }),
+    deletePost:builder.mutation<IDeletePostResponse,number>({
+      query:(payload) => ({
+        url:"/post",
+        method:"DELETE",
+        body:payload
+      }),
+    }),
+    editPost:builder.mutation<IEditPostResponse,IEditPostPayload>({
+      query:(payload) => ({
+        url:"/post",
+        method:"PUT",
+        body:payload
+      }),
     })
   })
 })
 
-export const { useGetAllPostsQuery, useLazyGetAllPostsQuery, useLazyGetPostByIdQuery } = postApi;
+export const { 
+  useGetAllPostsQuery, 
+  useLazyGetAllPostsQuery, 
+  useLazyGetPostByIdQuery,
+  useAddNewPostMutation,
+  useEditPostMutation,
+  useDeletePostMutation, 
+} = postApi;

@@ -5,15 +5,17 @@ import { AppLink } from "../../components/UI/AppLink/AppLink";
 import { IconsWrapper } from "../../components/UI/IconsWrapper/IconsWrapper";
 import { SLoginPage } from "./LOginPage.style";
 
-import { useNavigate } from "react-router-dom";
 
 import * as yup from "yup";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
+import { useNavigate } from "react-router-dom";
 import { useLoginUserMutation } from "../../store/API/authApi";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 import { useEffect } from "react";
+
+import { RootState } from "../../store/store";
 
 const AuthFormScheme = yup.object({
   userEmail: yup
@@ -79,6 +81,7 @@ export const LoginPage = () => {
     console.log("Данные пользователя:", userData);
     if (userData?.user_id) {
       navigate("/main-page");
+      localStorage.setItem("userLoginData", JSON.stringify(userData.user_id));
     }
   }, [userData, navigate]);
 

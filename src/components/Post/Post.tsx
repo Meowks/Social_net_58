@@ -42,7 +42,7 @@ export const Post = ({
         </div>
       </SUserElem>
       <p className="Post__text">{postText}</p>
-      <SMediaContainer>
+      {/* <SMediaContainer>
         <img
           className="media__item"
           src="./img/post/nature-1.png"
@@ -73,7 +73,7 @@ export const Post = ({
           src="./img/post/nature-6.png"
           alt="Post Item"
         />
-      </SMediaContainer>
+      </SMediaContainer> */}
       <SPostControls>
         <div className="icon-wrapper like" onClick={likeClick}>
           <span className="count likes-count">-500</span>

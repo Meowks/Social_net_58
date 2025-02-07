@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { SContainer } from "./themes/Container.style";
 import { PostPage } from "./pages/PostPage/PostPage";
 
+import Modal from 'react-modal';
 
 
 function App() {
@@ -38,9 +39,10 @@ function App() {
       element: <PostPage/>,
     },
   ])
-
+  Modal.setAppElement('#root');
   return (
     <SContainer>
+      
       <RouterProvider router={routerConfig} />
     </SContainer>
   );
