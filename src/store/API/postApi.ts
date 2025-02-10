@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { baseUrl } from "../../Utils/baseUrl";
 
 
-interface IPost {
+export interface IPost {
   main_text: string,
   user_id: number,
   id: number,
@@ -72,10 +72,9 @@ export const postApi = createApi({
       }),
     }),
     deletePost:builder.mutation<IDeletePostResponse,number>({
-      query:(payload) => ({
-        url:"/post",
+      query:(id) => ({
+        url:`/post?post_id=${id}`,
         method:"DELETE",
-        body:payload
       }),
     }),
     editPost:builder.mutation<IEditPostResponse,IEditPostPayload>({

@@ -5,10 +5,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { AppInput } from '../../components/UI/AppInput/AppInput';
 import { AppButton } from '../../components/UI/AppButton/AppButton';
 import { SPostForm } from './PostPage.style';
+import { IPost, useEditPostMutation } from "../../store/API/postApi"
+import { Loader } from '../../components/Loader/Loader';
+import { useEffect } from 'react';
+
 
 interface IEditPostProps {
   isOpen: boolean;
   onClose: () => void;
+  post: IPost;
+  onEditPostSuccsess?: ()=>void;
 }
 
 const EditPostFormScheme = yup.object({
@@ -18,7 +24,9 @@ const EditPostFormScheme = yup.object({
     .required("Поле обязательно для ввода")
 });
 
-export const EditPost = ({ isOpen, onClose }: IEditPostProps) => {
+export const EditPost = ({ isOpen, onClose, onEditPostSuccsess,post }: IEditPostProps) => {
+
+  const [editPost, { isLoading, isSuccess }] = useEditPostMutation()
   const {
     control,
     handleSubmit,
@@ -26,25 +34,33 @@ export const EditPost = ({ isOpen, onClose }: IEditPostProps) => {
   } = useForm({
     resolver: yupResolver(EditPostFormScheme),
     defaultValues: {
-      new_text: ""
+      new_text: post.main_text,
 
     },
   });
 
-  const handleAddPostFormSubmit: SubmitHandler<{ new_text: string }> = (formData) => {
+  const handleEditPostFormSubmit: SubmitHandler<{ new_text: string }> = (formData) => {
 
     if (formData) {
       const payload = {
-        post_id: 0,
+        post_id: post.id,
         new_text: formData.new_text,
       }
-      console.log(payload);
+      editPost(payload)
+      onClose()
 
     }
   }
+  useEffect(()=>{
+    if(isSuccess){
+      // onEditPostSuccsess();
+    }
+  }, [isSuccess]);
+
+  { isLoading && <Loader /> }
   return (
     <Modal isOpen={isOpen}>
-      <SPostForm onSubmit={() => { }}>
+      <SPostForm onSubmit={() => { handleSubmit(handleEditPostFormSubmit) }}>
         <Controller
           name="new_text"
           control={control}

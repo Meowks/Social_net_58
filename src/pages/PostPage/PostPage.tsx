@@ -24,6 +24,9 @@ export const PostPage = () => {
           postText={data.message.main_text}
           regDate={data.message.reg_date}
           userName={data.message.user_fk.name}
+          posiId={data.message.id}
+          onDeleteClick={()=>{}}
+          onEditClick={()=>{}}
         />
       )}
     </div>

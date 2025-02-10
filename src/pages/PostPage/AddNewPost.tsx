@@ -48,7 +48,7 @@ export const AddNewPost = ({ isOpen, onClose }: IAddNewPostProps) => {
 
     },
   });
-  const [AddNewPost, { data }] = useAddNewPostMutation();
+  const [AddNewPost, { data, isSuccess }] = useAddNewPostMutation();
   const userId = useUserId()
 
   const handleAddPostFormSubmit: SubmitHandler<{ main_text: string }> = (formData) => {
@@ -59,6 +59,9 @@ export const AddNewPost = ({ isOpen, onClose }: IAddNewPostProps) => {
         main_text: formData.main_text,
       }
       AddNewPost(payload)
+      onClose()
+    }
+    if(isSuccess){
       onClose()
     }
   }

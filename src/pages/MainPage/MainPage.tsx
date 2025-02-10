@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useGetAllPostsQuery, useLazyGetAllPostsQuery } from "../../store/API/postApi";
+import { useCallback, useEffect, useState } from "react";
+import { IPost, useDeletePostMutation, useLazyGetAllPostsQuery } from "../../store/API/postApi";
 
 import { LeftSide } from "../../components/leftSide/LeftSide";
 import { RightSide } from "../../components/RightSide/RightSide";
@@ -11,13 +11,23 @@ import { SMainPage } from "./SMainPage.style";
 import { WhatsNew } from "../../components/WhatsNew/WhatsNew";
 import { History } from "../../components/History/History";
 import { PostRepost } from "../../components/PostRepost/PostRepost";
+import { EditPost } from "../PostPage/EditPost";
 
 export const MainPage = () => {
-  const [liked, setLiked] = useState(false)
-  const [mark, setMark] = useState(false)
+  const [liked, setLiked] = useState(false);
+  const [mark, setMark] = useState(false);
 
-  const [likedPost, setLikedPost] = useState(false)
-  const [markPost, setMarkPost] = useState(false)
+  const [likedPost, setLikedPost] = useState(false);
+  const [markPost, setMarkPost] = useState(false);
+
+  const [openEditPost, setOpenEditPost] = useState<boolean>(false);
+  const [selectedPost, setSelectedPost] = useState<IPost | null>();
+
+  const [deletePost, {isSuccess}] = useDeletePostMutation()
+
+  const onEditModalClose = useCallback(() => {
+    setOpenEditPost(false);
+  }, [])
 
 
   const [fetchTrigger, { data }] = useLazyGetAllPostsQuery()
@@ -52,9 +62,17 @@ export const MainPage = () => {
               postText={elem.main_text}
               regDate={elem.reg_date}
               userName={elem.user_fk.name}
+              onDeleteClick={() => {deletePost(elem.id)}}
+              onEditClick={() => setOpenEditPost(true)}
+              posiId={elem.id}
 
             />
           ))}
+          {<EditPost
+            isOpen={openEditPost}
+            onClose={onEditModalClose}
+            post={selectedPost}
+          />}
 
 
 

@@ -3,6 +3,7 @@ import { SCommentBlock, SMediaContainer, SPostControls } from "../PostRepost/Pos
 import { SUserElem } from "../UI/UserElem/UserElem.style";
 import { SPost } from "./Post.style";
 import { PostSettings } from "./PostSettings";
+import { useDeletePostMutation } from "../../store/API/postApi";
 
 interface IPostProps {
   isLiked?: boolean;
@@ -12,6 +13,9 @@ interface IPostProps {
   userName: string;
   regDate: string;
   postText: string;
+  posiId: number;
+  onDeleteClick:()=>void;
+  onEditClick:()=>void;
   
 }
 
@@ -23,10 +27,14 @@ export const Post = ({
    postText, 
    regDate, 
    userName,
+   posiId,
+   onDeleteClick,
+   onEditClick
    
   }: IPostProps) => {
 
     const [isSettingStatus, setIsSettingStatus] = useState<boolean>(false)
+    
   return (
     <SPost
       $isLiked={isLiked}
@@ -42,38 +50,7 @@ export const Post = ({
         </div>
       </SUserElem>
       <p className="Post__text">{postText}</p>
-      {/* <SMediaContainer>
-        <img
-          className="media__item"
-          src="./img/post/nature-1.png"
-          alt="Post Item"
-        />
-        <img
-          className="media__item"
-          src="./img/post/nature-2.png"
-          alt="Post Item"
-        />
-        <img
-          className="media__item"
-          src="./img/post/nature-3.png"
-          alt="Post Item"
-        />
-        <img
-          className="media__item"
-          src="./img/post/nature-4.png"
-          alt="Post Item"
-        />
-        <img
-          className="media__item"
-          src="./img/post/nature-5.png"
-          alt="Post Item"
-        />
-        <img
-          className="media__item"
-          src="./img/post/nature-6.png"
-          alt="Post Item"
-        />
-      </SMediaContainer> */}
+       
       <SPostControls>
         <div className="icon-wrapper like" onClick={likeClick}>
           <span className="count likes-count">-500</span>
@@ -164,7 +141,7 @@ export const Post = ({
           <circle id="ellipse_3" cx="2.5" cy="2.5" r="2.5" />
         </g>
       </svg>
-      {isSettingStatus && <PostSettings/>}
+      {isSettingStatus && <PostSettings onDeleteClick={onDeleteClick} onEditClick={onEditClick} />}
     </SPost>
   );
 };
